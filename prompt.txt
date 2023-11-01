@@ -1,0 +1,7 @@
+1.11.23 установил плагин Translate, Atom Material, Material Theme,
+Discord Integration, Rainbow brackets:
+File/ Settings/ Plugins:
+Translate   помогает для перевода. Например написал на русском,
+            отметил, нажал правую кнопку, выбрал перевести и вставить!
+
+Rainbow brackets    окрашивает в разные цвета скобки
