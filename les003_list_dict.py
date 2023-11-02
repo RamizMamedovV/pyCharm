@@ -59,3 +59,8 @@ print(res_list)
 #         res_list.append(i)
 #     count = 0
 # print(res_list)
+
+dic_example = {1: "one", 2: "two", 3: "three"}
+print(dic_example.get(1, "notFound"))
+print(dic_example.get(7, "notFound"))
+print(dic_example.get(3, "notFound"))
