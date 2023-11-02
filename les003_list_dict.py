@@ -64,3 +64,7 @@ dic_example = {1: "one", 2: "two", 3: "three"}
 print(dic_example.get(1, "notFound"))
 print(dic_example.get(7, "notFound"))
 print(dic_example.get(3, "notFound"))
+print(dic_example)
+dic_example.setdefault(1, "five") # если есть такой ключ - не перезапишет
+dic_example.setdefault(5, "five") # если нет такого ключа - запишет
+print(dic_example)
