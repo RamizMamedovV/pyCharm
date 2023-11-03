@@ -13,14 +13,27 @@ my_list = [random.randint(1, 10) for _ in range(1, 10)]
 print(my_list)
 
 count = 0
-for i in range(-1, len(my_list)-1):
-    if my_list[i-1] < my_list[i] and my_list[i+1] < my_list[i]:
-        print(f"my_list[i] = {my_list[i]}")
+for i in range(len(my_list)):
+    left = my_list[i-1]
+    middle = my_list[i]
+    right = my_list[(i+1)%len(my_list)]
+    print((i+1)%len(my_list))
+    if left < middle > right:
         count += 1
 
-print(f"count = {count}")
+print(count)
 
-# [10, 2, 6, 1, 5, 8, 6, 6, 2]
+
+#                   second way
+# count = 0
+# for i in range(-1, len(my_list)-1):
+#     if my_list[i-1] < my_list[i] > my_list[i+1]:
+#         print(f"my_list[i] = {my_list[i]}")
+#         count += 1
+#
+# print(f"count = {count}")
+
+#                   first way
 # def check_neighbor(left, middle, right):
 #     if left < middle > right:
 #         return True
