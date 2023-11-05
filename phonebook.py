@@ -1,8 +1,9 @@
+"""
 from typing import List
 from create_contact import contact_tuple
 
 from phonebook_user import print_menu as user_print
-
+"""
 menu = """
 1. Открыть файл телефонной книги
 2. Сохранить файл телефонной книги
@@ -26,13 +27,21 @@ not available-----------------------
 5. Добавить контакт
 8. Выход
 """
-file_name = 'phonebook.txt'
+file_name = None
 data = {}
 count = 0
 
 while True:
+
     print(menu)
     user_choice = int(input("enter your choice: "))
+    if user_choice == 1:
+        file_name = input("enter name of file to create notebook: ")
+    elif user_choice == 2:
+        with open(file_name, 'a', encoding='UTF-8') as file:
+            for k, v in data.values():
+                file.write(v)
+        print("done")
     if user_choice == 3:
         for item, value in data.items():
             print(item, value)
@@ -70,8 +79,7 @@ while True:
 
 
 
-
-#
+# text_del = """
 # def is_start(name):
 #     try:
 #         with open(name, 'r', encoding='UTF-8') as file:
@@ -88,7 +96,7 @@ while True:
 # # def print_contacts():
 # #     global data
 # #     with open(file_name, 'r', encoding='UTF-8') as file:
-# #         list_of_contacts = file.readlines()
+# #          list_of_contacts = "file"
 # #     if len(list_of_contacts) > 0:
 # #         data[list_of_contacts[0]] = {'name': list_of_contacts[0][1],
 # #                                      'phone': list_of_contacts[0][2]}
@@ -98,7 +106,7 @@ while True:
 # # def read_file(file_name_to_read) -> list[str]:
 # #     print(file_name_to_read)
 # #     with open(file_name_to_read, 'r', encoding='UTF-8') as file:
-# #         contacts = file.readlines()
+# #         contacts = "file"
 # #     print(contacts)
 # #     return contacts
 #
@@ -143,4 +151,5 @@ while True:
 #             print("Not correct")
 #
 #
-# start(file_name)
+# start(file_name)"""
+
