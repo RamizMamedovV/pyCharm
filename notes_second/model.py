@@ -1,5 +1,6 @@
 import os
 import json
+import note
 
 my_path = 'my_notes.json'
 my_notes = []
@@ -32,3 +33,8 @@ def delete_note(note_id: int) -> bool:
     global my_notes
     my_notes.remove(my_notes[note_id - 1])
     return True
+
+
+def add_new_node(temp: dict):
+    global my_notes
+    my_notes.append(temp)

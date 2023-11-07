@@ -1,5 +1,6 @@
 import view
 import model
+import note
 
 """ 1. Создать заметку 2. Распечатать все 3. Редактировать 
     4. Найти            5. Удалить        6. Выход"""
@@ -11,7 +12,8 @@ def start(message: str, choice_start: int, choice_length: int):
         choice = view.user_choice(message, 0, choice_length)
         match choice:
             case 1:
-                pass
+                temp = view.create_note(model.get_notes_length() + 1)
+                model.add_new_node(temp)
             case 2:
                 view.print_all(model.get_notes(), "заметок пока нет!!")
             case 3:

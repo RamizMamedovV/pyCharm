@@ -1,5 +1,3 @@
-
-
 def user_choice(message: str, choice_start: int, choice_length: int):
     while True:
         print(message)
@@ -22,7 +20,7 @@ def print_all(data: list[dict], error_message):
             print(f'note_id = {i["note_id"]}')
             print(f"title: {i['title']}")
             print(f"content: {i['content']}")
-            print(f"rec_time: {i['rec_time']}")
+            # print(f"rec_time: {i['rec_time']}")
 
 
 def user_edit_note(data: list[dict]) -> dict:
@@ -57,3 +55,9 @@ def search(data: list[dict], error_message: str):
 
 def print_message(message: str):
     print(message)
+
+
+def create_note(note_id: int) -> dict:
+    return {'note_id': int(note_id),
+            'title': input("Введите title: "),
+            'content': input("Введите content: ")}
