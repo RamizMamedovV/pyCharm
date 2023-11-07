@@ -2,7 +2,8 @@ import os
 import json
 import note
 
-my_path = 'my_notes.json'
+#my_path = 'my_notes.json'
+my_path = 'my_note.json'
 my_notes = []
 
 
@@ -10,7 +11,7 @@ def start():
     global my_notes
     if os.path.exists(my_path):
         with open(my_path, 'r', encoding='UTF-8') as file:
-            my_notes = json.load(file)
+            my_notes = enumerate(json.load(file))
 
 
 def get_notes():
@@ -23,12 +24,13 @@ def get_notes_length():
 
 def edit_note(note_id: int, title: str, content: str):
     global my_notes
-    for notes in my_notes:
-        if note_id == notes['note_id']:
+    for i, notes in enumerate(my_notes, 1):
+        if note_id == i:
             notes['title'] = title
             notes['content'] = content
             return True
     return False
+
 
 def delete_note(note_id: int) -> bool:
     global my_notes

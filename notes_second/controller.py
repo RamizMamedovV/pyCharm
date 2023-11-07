@@ -14,7 +14,7 @@ def start(message: str, choice_start: int, choice_length: int):
         match choice:
             #   1. Создать заметку
             case 1:
-                temp = view.create_note(model.get_notes_length() + 1)
+                temp = view.create_note()
                 model.add_new_node(temp)
             #   2. Распечатать все
             case 2:
@@ -34,9 +34,8 @@ def start(message: str, choice_start: int, choice_length: int):
             #   5. Удалить
             case 5:
                 view.show_titles(model.get_notes(), "заметок пока нет!!")
-                print(f"model.get_notes_length()= {model.get_notes_length()}")
                 choice = view.user_choice("Введите искомый id: ",
-                                          0, model.get_notes_length())
+                                          1, model.get_notes_length())
                 view.print_is_done(model.delete_note(choice))
             #   6. Выход
             case 6:

@@ -17,10 +17,10 @@ def show_titles(data: list[dict], error_message):
 
 def print_all(data: list[dict], error_message):
     if data:
-        for i in data:
-            print(f'note_id = {i["note_id"]}')
-            print(f"title: {i['title']}")
-            print(f"content: {i['content']}")
+        for i, item in enumerate(data, 1):
+            print(f'note_id = {i}')
+            print(f"title: {item['title']}")
+            print(f"content: {item['content']}")
             # print(f"rec_time: {i['rec_time']}")
     else:
         print(error_message)
@@ -30,7 +30,7 @@ def user_edit_note(data: list[dict]) -> dict:
     temp = {}
     while True:
         choice = input("Введите ваш выбор: ")
-        if choice.isdigit() and 1 < int(choice) <= len(data):
+        if choice.isdigit() and 1 <= int(choice) <= len(data):
             temp['note_id'] = choice
             temp['title'] = input("Введите title: ")
             temp['content'] = input("Введите content: ")
@@ -43,15 +43,13 @@ def search(data: list[dict], error_message: str):
     if data:
         while True:
             choice = input("Введите искомый id: ")
-            if choice.isdigit() and 0 < int(choice) <= len(data):
-                for item in data:
-                    if int(choice) == item['note_id']:
-                        print(item['note_id'])
-                        print(item['title'])
-                        print(item['content'])
+            if choice.isdigit() and 1 <= int(choice) <= len(data):
+                for i, item in enumerate(data, 1):
+                    if int(choice) == i:
+                        print(f" note_id: {i}, Title: {item['title']} Content: {item['content']}")
                         return
             else:
-                print(f"Введите от 0 до {len(data)}")
+                print(f"Введите от 1 до {len(data)}")
     else:
         print(error_message)
 
@@ -63,7 +61,6 @@ def print_is_done(is_done: bool):
         print("Error")
 
 
-def create_note(note_id: int) -> dict:
-    return {'note_id': int(note_id),
-            'title': input("Введите title: "),
+def create_note() -> dict:
+    return {'title': input("Введите title: "),
             'content': input("Введите content: ")}
