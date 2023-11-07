@@ -16,11 +16,19 @@ def get_notes():
     return my_notes
 
 
+def get_notes_length():
+    return len(my_notes)
+
+
 def edit_note(note_id: int, title: str, content: str):
     global my_notes
     for notes in my_notes:
         if note_id == notes['note_id']:
-            print("note_id == int(notes['note_id']")
             notes['title'] = title
             notes['content'] = content
 
+
+def delete_note(note_id: int) -> bool:
+    global my_notes
+    my_notes.remove(my_notes[note_id - 1])
+    return True

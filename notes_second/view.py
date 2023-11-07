@@ -1,19 +1,13 @@
 
 
-def main_menu():
+def user_choice(message: str, choice_start: int, choice_length: int):
     while True:
-        print("""Меню:
-         1. Создать заметку
-         2. Распечатать все 
-         3. Редактировать 
-         4. Найти 
-         5. Удалить
-         6. Выход""")
+        print(message)
         choice = input("Введите пункт меню: ")
-        if choice.isdigit and 0 < int(choice) < 7:
+        if choice.isdigit and choice_start < int(choice) <= choice_length:
             return int(choice)
         else:
-            print("Введите ЦИФРУ от 1 до 6!")
+            print(f"Введите ЦИФРУ от {choice_start} до {choice_length}!")
 
 
 def show_titles(data: list[dict], error_message):
@@ -54,7 +48,12 @@ def search(data: list[dict], error_message: str):
                         print(item['note_id'])
                         print(item['title'])
                         print(item['content'])
+                        return
             else:
                 print(f"Введите от 0 до {len(data)}")
     else:
         print(error_message)
+
+
+def print_message(message: str):
+    print(message)
