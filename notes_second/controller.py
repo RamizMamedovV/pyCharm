@@ -9,31 +9,35 @@ import note
 def start(message: str, choice_start: int, choice_length: int):
     model.start()
     while True:
-        choice = view.user_choice(message, 0, choice_length)
+        choice = view.user_choice(message,
+                                  choice_start, choice_length)
         match choice:
+            #   1. Создать заметку
             case 1:
                 temp = view.create_note(model.get_notes_length() + 1)
                 model.add_new_node(temp)
+            #   2. Распечатать все
             case 2:
-                view.print_all(model.get_notes(), "заметок пока нет!!")
+                view.print_all(model.get_notes(),
+                               "заметок пока нет!!")
+            #   3. Редактировать
             case 3:
-                view.show_titles(model.get_notes(), "заметок пока нет!!")
+                view.show_titles(model.get_notes(),
+                                 "заметок пока нет!!")
                 temp = (view.user_edit_note(model.get_notes()))
-                model.edit_note(int(temp['note_id']), temp['title'], temp['content'])
+                view.print_is_done(model.edit_note(int(temp['note_id']),
+                                                   temp['title'], temp['content']))
+            #   4. Найти
             case 4:
                 view.show_titles(model.get_notes(), "заметок пока нет!!")
                 view.search(model.get_notes(), "Пусто((:")
+            #   5. Удалить
             case 5:
                 view.show_titles(model.get_notes(), "заметок пока нет!!")
                 print(f"model.get_notes_length()= {model.get_notes_length()}")
                 choice = view.user_choice("Введите искомый id: ",
                                           0, model.get_notes_length())
-                print(type(choice))
-                print(f"choice= {choice}")
-                flag = model.delete_note(choice)
-                if flag:
-                    view.print_message("Done")
-                else:
-                    view.print_message("Error")
+                view.print_is_done(model.delete_note(choice))
+            #   6. Выход
             case 6:
                 return

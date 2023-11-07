@@ -27,7 +27,8 @@ def edit_note(note_id: int, title: str, content: str):
         if note_id == notes['note_id']:
             notes['title'] = title
             notes['content'] = content
-
+            return True
+    return False
 
 def delete_note(note_id: int) -> bool:
     global my_notes

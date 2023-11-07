@@ -9,4 +9,4 @@ main_menu = """Меню:
 
 
 if __name__ == '__main__':
-    controller.start(main_menu, 0, 6)
+    controller.start(main_menu, 1, 6)
