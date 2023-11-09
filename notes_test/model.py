@@ -68,3 +68,4 @@ class Notebook:
         date_list = []
         for note in self.notebook:
             print(date_now - date(note_class.Note.get_note_date(note)))
+

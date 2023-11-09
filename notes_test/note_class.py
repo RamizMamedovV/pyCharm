@@ -36,3 +36,4 @@ class Note:
 
     def set_note_content(self, content: str):
         self.content = content
+

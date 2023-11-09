@@ -72,3 +72,4 @@ def start():
 
             case 7:  # Выход
                 return
+
