@@ -1,4 +1,46 @@
 from datetime import datetime as date
+import time
+
+#                   example 10
+import datetime
+import pytz
+
+#                   example 10
+# time_now = datetime.datetime.now(pytz.utc) # мировое время
+# print(time_now)  # 2023-11-09 15:00:59.248522+00:00
+# print(date.now()) # 2023-11-09 18:00:59.248522
+# # преобразование из мирового в местное
+# print(pytz.utc.localize(date.now())) # 2023-11-09 15:00:59.248522+00:00
+
+
+#                   example 9
+# d1 = date.now()
+# print(f"d1 = {d1}")
+# time.sleep(5)
+# d2 = date.now()
+# print(f"d2 = {d2}")
+# # print(max(d1, d2))
+# list_time = [d1, d2, d1]
+# print(list_time)
+#
+# list_time.sort()
+# list_time.sort(reverse=True)
+# print(list_time)
+
+
+def custom_key(people):
+    return people[1]  # second parameter denotes the age
+
+
+persons = [['Alice', 26, 'F'], ['Trudy', 25, 'M'], ['Bob', 25, 'M'], ['Alexa', 22, 'F']]
+print(f'Before sorting: {persons}')
+persons.sort(key=custom_key)
+print(f'After sorting: {persons}')
+
+# if d2 > d1:
+#     print("ok")
+# else:
+#     print("no")
 
 #                   example 8
 import time
@@ -22,8 +64,8 @@ import time
 # print(time.strftime('%D, %M, %Y')) # 11/09/23, 46, 2023
 # print(time.strftime('%d, %m, %Y')) # 09, 11, 2023
 
-str_time = '11 JUNE, 2020'
-print(time.strptime(str_time, "%d %B, %Y")) # time.struct_time(tm_year=2020,.....
+# str_time = '11 JUNE, 2020'
+# print(time.strptime(str_time, "%d %B, %Y")) # time.struct_time(tm_year=2020,.....
 
 #                   example 7
 # import datetime
