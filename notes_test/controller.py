@@ -5,10 +5,11 @@ data_json_file = "my_data.json"
 main_menu = """Меню:
          1. Создать заметку
          2. Распечатать все 
-         3. Редактировать 
-         4. Найти 
-         5. Удалить
-         6. Выход"""
+         3. Распечатать по дате
+         4. Редактировать 
+         5. Найти 
+         6. Удалить
+         7. Выход"""
 choice_text = "Введите пункт меню: "
 search_node_id = "Введите искомый note_id: "
 empty_message = "А здесь ещё пусто)))"
@@ -20,21 +21,23 @@ def start():
     while True:
         choice = view.user_choice(choice_text,
                                   1,
-                                  6,
+                                  7,
                                   error_message,
                                   main_menu)
         match choice:
-            # 1. Создать заметку
-            case 1:
+
+            case 1:   # 1. Создать заметку
                 user_input = view.create_note()
                 notebook.create_note(notebook.get_note_id() + 1, *user_input)
-            # 2. Распечатать все
-            case 2:
+
+            case 2:   # 2. Распечатать все
                 view.print_list(notebook.get_notes(),
                                 empty_message)
 
-            # 3. Редактировать
-            case 3:
+            case 3:   # 3. Распечатать по дате
+                notebook.format_date()
+
+            case 4:  # 4. Редактировать
                 if view.print_search_format(notebook.get_notes(),
                                             empty_message):
                     choice = view.user_choice(search_node_id,
@@ -47,8 +50,7 @@ def start():
                     else:
                         view.print_message("Error")
 
-            # 4. Найти
-            case 4:
+            case 5:  # 5. Найти
                 if view.print_search_format(notebook.get_notes(),
                                             empty_message):
                     choice = view.user_choice(search_node_id,
@@ -58,8 +60,8 @@ def start():
                     view.print_note(notebook.get_notes(),
                                     choice,
                                     error_message)
-            # 5. Удалить
-            case 5:
+
+            case 6:  # 6. Удалить
                 if view.print_search_format(notebook.get_notes(),
                                             empty_message):
                     choice = view.user_choice(search_node_id,
@@ -67,5 +69,6 @@ def start():
                                               notebook.get_note_id(),
                                               error_message)
                     notebook.delete_note(choice)
-            case 6:
+
+            case 7:  # Выход
                 return

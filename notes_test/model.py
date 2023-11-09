@@ -62,3 +62,9 @@ class Notebook:
         for note in self.notebook:
             i += 1
             note_class.Note.set_note_id(note, i)
+
+    def format_date(self):
+        date_now = date.now()
+        date_list = []
+        for note in self.notebook:
+            print(date_now - date(note_class.Note.get_note_date(note)))

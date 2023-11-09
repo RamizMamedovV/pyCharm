@@ -54,3 +54,4 @@ def print_note(notebook: list[dict], note_id, error_message: str):
                 print(note_class.Note.note_json_format(note))
     else:
         print_message(error_message)
+

@@ -1,9 +1,3 @@
-from datetime import datetime as rec
-"""Заметка должна
-содержать идентификатор, заголовок,
-тело заметки и дату/время создания или
-последнего изменения заметки. """
-
 
 class Note:
 
@@ -27,6 +21,9 @@ class Note:
             'note_id': {self.note_id},
             'title': {self.title}
         }
+
+    def get_note_date(self):
+        return self.rec_time
 
     def get_note_id(self):
         return self.note_id
