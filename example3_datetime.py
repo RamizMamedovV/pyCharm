@@ -1,4 +1,81 @@
-from datetime import datetime
+from datetime import datetime as date
+
+#                   example 8
+import time
+
+# for i in range(5):
+#     print(i)
+#     time.sleep(1)
+
+# seconds = time.time()
+# print(seconds)              # 1_699_540_259.1261108
+# print(time.ctime(seconds))  # Thu Nov  9 17:30:20 2023 today!!
+# print(time.asctime())       # Thu Nov  9 17:33:52 2023 today!!
+# print(time.localtime(time.time())) # time.struct_time(tm_year=2023, tm_mon=11,
+#                                     # tm_mday=9, tm_hour=17,
+#                                     # tm_min=36, tm_sec=45, tm_wday=3,
+#                                     # tm_yday=313, tm_isdst=0)
+# print(time.localtime(time.time()).tm_mday) # 9
+
+# print(time.gmtime(time.time())) # аналогично time.struct_time(tm_year=2023,....
+
+# print(time.strftime('%D, %M, %Y')) # 11/09/23, 46, 2023
+# print(time.strftime('%d, %m, %Y')) # 09, 11, 2023
+
+str_time = '11 JUNE, 2020'
+print(time.strptime(str_time, "%d %B, %Y")) # time.struct_time(tm_year=2020,.....
+
+#                   example 7
+# import datetime
+# sum_time = datetime.timedelta(days=5, weeks=2, hours=2, milliseconds=11, microseconds=12)
+# print(sum_time) # 19 days, 2:00:00.011012
+#
+# minus_time = date.now() - datetime.timedelta(days= 5)
+# print(minus_time) # 2023-11-04 17:12:14.910094
+
+
+#                   example 6
+#  преобразуем дату в строку
+# log_str = date.now().strftime('%d.%m.%Y %H:%M:%S')
+# print(log_str)
+# #  преобразуем из строки в дату
+# print_log = (date.now().strptime(log_str, '%d.%m.%Y %H:%M:%S'))
+# print(print_log)
+
+
+#                   example 5
+# date_now = date.now()
+# date_now1 = date.now()
+# date_now_str = date_now.strftime("%d.%m.%y %H:%M:%S") # 09.11.23 11:58:40
+# date_now_str1 = date_now.strftime("%d.%m.%y %H:%M:%S") # 09.11.23 11:59:00
+# count = 2
+# num = ''
+# format_str = []
+# for i in date_now_str:
+#     if i.isdigit():
+#         num += i
+#         count += 1
+#         if count %2 == 0:
+#             format_str.append(num) # ['09', '11', '23', '15', '22', '16']
+#             count = 2
+#             num = ''
+#
+# print(format_str)
+# data_new_str = (','.join(format_str))
+# print(data_new_str)
+# data_new = date(2023,11,23)
+
+#                   example 4
+# t1 = date(year=2018, month=7, day=12)
+# t2 = date(year=2017, month=12, day=23)
+# t3 = t1 - t2
+# print("t3 =", t3)
+# t4 = datetime(year=2018, month=7, day=12, hour=7, minute=9, second=33)
+# t5 = datetime(year=2019, month=6, day=10, hour=5, minute=55, second=13)
+# t6 = t4 - t5
+# print("t6 =", t6)
+# print("type of t3 =", type(t3))
+# print("type of t6 =", type(t6))
 
 #                   example 3
 # print(dir(datetime))
@@ -8,12 +85,12 @@ from datetime import datetime
 
 
 #                   example1
-date_time = datetime.now()
-date_time1 = datetime.now() - date_time
-format_time = date_time.strftime("%y.%m.%d %H:%M:%S")
-print(type(format_time))
-print(date_time.strftime("%y.%m.%d %H:%M:%S"))
-print(date_time1)
+# date_time = datetime.now()
+# date_time1 = datetime.now() - date_time
+# format_time = date_time.strftime("%y.%m.%d %H:%M:%S")
+# print(type(format_time))
+# print(date_time.strftime("%y.%m.%d %H:%M:%S"))
+# print(date_time1)
 
 
 #                   example2
