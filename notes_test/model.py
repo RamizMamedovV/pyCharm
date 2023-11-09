@@ -13,18 +13,18 @@ class Notebook:
             with open(self.data_file, 'r', encoding='utf-8') as file:
                 self.notebook = json.load(file)
 
-    def print_list(self):
-        for note in self.notebook:
-            print(note_class.Note.note_json_format(note))
+    def get_notes(self):
+        return self.notebook
 
-    def print_search_note(self, note_id: int):
-        for note in self.notebook:
-            if note_id == note_class.Note.get_note_id(note):
-                return note_class.Note.note_json_format(note)
+    # def print_search_note(self, note_id: int):
+    #     for note in self.notebook:
+    #         if note_id == note_class.Note.get_note_id(note):
+    #             return note_class.Note.note_json_format(note)
 
-    def print_search_format(self):
-        for note in self.notebook:
-            print(note_class.Note.search_format(note))
+    # def print_search_format(self):
+    #     if self.notebook:
+    #         for note in self.notebook:
+    #             print(note_class.Note.search_format(note))
 
     def create_note(self, note_id: int,
                     title: str,
@@ -47,5 +47,18 @@ class Notebook:
                 note_class.Note.set_note_title(note, title)
                 note_class.Note.set_note_content(note, content)
                 return True
-            else:
-                return False
+        return False
+
+    def delete_note(self, note_id: int) -> bool:
+        for note in self.notebook:
+            if note_id == note_class.Note.get_note_id(note):
+                del self.notebook[note_id - 1]
+                self.format_notes()
+                return True
+        return False
+
+    def format_notes(self):
+        i = 0
+        for note in self.notebook:
+            i += 1
+            note_class.Note.set_note_id(note, i)

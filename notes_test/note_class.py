@@ -31,6 +31,9 @@ class Note:
     def get_note_id(self):
         return self.note_id
 
+    def set_note_id(self, note_id):
+        self.note_id = note_id
+
     def set_note_title(self, title: str):
         self.title = title
 
