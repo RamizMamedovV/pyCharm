@@ -47,8 +47,8 @@ class Notebook:
                   content: str) -> bool:
         for note in self.notebook:
             if note_id == int(note['note_id']):
-                note['title'] = title
-                note['content'] = content
+                note['title'] = title if title != '' else note['title']
+                note['content'] = content if content != '' else note['content']
                 note['date'] = date.now().strftime("%d.%m.%y %H:%M:%S")
                 return True
         return False

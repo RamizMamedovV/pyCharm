@@ -17,6 +17,9 @@ empty_message = "А здесь ещё пусто)))"
 error_message = "Не верный ввод!"
 well_done_message = "Сделано!"
 something_wrong_message = "Что-то пошло не так!!!"
+same_edit_message = ("               !!!ВНИМАНИЕ!!!\n"
+                     "Если не нужно менять, просто нажмите ENTER\n"
+                     "              Но дата изменится")
 
 
 def start():
@@ -47,6 +50,7 @@ def start():
                                               1,
                                               notebook.get_note_id(),
                                               error_message)
+                    view.print_message(same_edit_message)
                     user_input = view.create_note()
                     if notebook.edit_note(choice, *user_input):
                         view.print_message("Done")
