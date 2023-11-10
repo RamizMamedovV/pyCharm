@@ -12,22 +12,15 @@ class Notebook:
     def __init__(self, data_file: str):
         self.data_file = data_file
         self.notebook = []
-        if os.path.exists(self.data_file):
-            with open(self.data_file, 'r', encoding='utf-8') as file:
-                self.notebook = json.load(file)
+        if os.path.exists(self.data_file) and os.path.getsize(self.data_file) > 0:
+            try:
+                with open(self.data_file, 'r', encoding='utf-8') as file:
+                    self.notebook = json.load(file)
+            except json.decoder.JSONDecodeError as e:
+                print(f"Error decoding JSON in {self.data_file}: {e}")
 
     def get_notes(self):
         return self.notebook
-
-    # def print_search_note(self, note_id: int):
-    #     for note in self.notebook:
-    #         if note_id == note_class.Note.get_note_id(note):
-    #             return note_class.Note.note_json_format(note)
-
-    # def print_search_format(self):
-    #     if self.notebook:
-    #         for note in self.notebook:
-    #             print(note_class.Note.search_format(note))
 
     def create_note(self, note_id: int,
                     title: str,
@@ -67,11 +60,8 @@ class Notebook:
             i += 1
             note_class.Note.set_note_id(note, i)
 
-    # def get_note(self):
-    #     for note in self.notebook:
-    #         print(date_now - date(note_class.Note.get_note_date(note)))
-
-    # def format_date(self):
-    #     sorted_notebook = sorted(self.notebook, key=note_class.Note.key_date())
-    #     print(sorted_notebook)
+    def save_note_to_json(self):
+        dict_to = [note_class.Note.note_json_format(note) for note in self.notebook]
+        with open(self.data_file, 'w', encoding='utf-8') as file:
+            json.dump(dict_to, file, indent=3)
 

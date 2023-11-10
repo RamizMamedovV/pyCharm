@@ -1,7 +1,7 @@
 import view
 import model
 
-data_json_file = "my_data.json"
+data_json_file = "note_data.json"
 main_menu = """Меню:
          1. Создать заметку
          2. Распечатать все 
@@ -9,7 +9,8 @@ main_menu = """Меню:
          4. Редактировать 
          5. Найти 
          6. Удалить
-         7. Выход"""
+         7. Записать в note_data.json
+         8. Выход"""
 choice_text = "Введите пункт меню: "
 search_node_id = "Введите искомый note_id: "
 empty_message = "А здесь ещё пусто)))"
@@ -21,7 +22,7 @@ def start():
     while True:
         choice = view.user_choice(choice_text,
                                   1,
-                                  7,
+                                  8,
                                   error_message,
                                   main_menu)
         match choice:
@@ -70,6 +71,9 @@ def start():
                                               error_message)
                     notebook.delete_note(choice)
 
-            case 7:  # Выход
+            case 7:  # Записать в note_data.json
+                notebook.save_note_to_json()
+
+            case 8:  # Выход
                 return
 

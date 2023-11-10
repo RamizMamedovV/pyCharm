@@ -12,10 +12,10 @@ class Note:
 
     def note_json_format(self):
         return {
-            'note_id': {self.note_id},
-            'title': {self.title},
-            'content': {self.content},
-            'date': {self.rec_time}
+            'note_id': self.note_id,
+            'title': self.title,
+            'content': self.content,
+            'date': self.rec_time
         }
 
     def search_format(self):
