@@ -1,5 +1,8 @@
 import json
 import os
+
+import pytz
+
 import note_class
 from datetime import datetime as date
 
@@ -46,6 +49,7 @@ class Notebook:
             if note_id == note_class.Note.get_note_id(note):
                 note_class.Note.set_note_title(note, title)
                 note_class.Note.set_note_content(note, content)
+                note_class.Note.set_note_date(note, date.now().strftime("%d.%m.%y %H:%M:%S"))
                 return True
         return False
 
@@ -63,9 +67,11 @@ class Notebook:
             i += 1
             note_class.Note.set_note_id(note, i)
 
-    def format_date(self):
-        date_now = date.now()
-        date_list = []
-        for note in self.notebook:
-            print(date_now - date(note_class.Note.get_note_date(note)))
+    # def get_note(self):
+    #     for note in self.notebook:
+    #         print(date_now - date(note_class.Note.get_note_date(note)))
+
+    # def format_date(self):
+    #     sorted_notebook = sorted(self.notebook, key=note_class.Note.key_date())
+    #     print(sorted_notebook)
 

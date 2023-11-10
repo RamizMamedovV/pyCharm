@@ -56,3 +56,10 @@ def print_note(notebook: list[dict], note_id, error_message: str):
         print_message(error_message)
 
 
+def get_node_date(node):
+    return note_class.Note.key_date(node)
+
+
+def format_date(notebook: list[dict]):
+    sorted_notebook = sorted(notebook, key=get_node_date)
+    print_list(sorted_notebook, "sort_error")

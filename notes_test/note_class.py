@@ -1,3 +1,5 @@
+from datetime import datetime as date
+
 
 class Note:
 
@@ -22,8 +24,14 @@ class Note:
             'title': {self.title}
         }
 
+    def key_date(self):
+        return self.rec_time
+
     def get_note_date(self):
         return self.rec_time
+
+    def set_note_date(self, new_date):
+        self.rec_time = new_date
 
     def get_note_id(self):
         return self.note_id

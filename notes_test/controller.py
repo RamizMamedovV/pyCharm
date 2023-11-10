@@ -35,7 +35,7 @@ def start():
                                 empty_message)
 
             case 3:   # 3. Распечатать по дате
-                notebook.format_date()
+                view.format_date(notebook.get_notes())
 
             case 4:  # 4. Редактировать
                 if view.print_search_format(notebook.get_notes(),
