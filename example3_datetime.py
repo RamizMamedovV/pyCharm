@@ -6,11 +6,25 @@ import datetime
 import pytz
 
 #                   example 10
-# time_now = datetime.datetime.now(pytz.utc) # мировое время
-# print(time_now)  # 2023-11-09 15:00:59.248522+00:00
-# print(date.now()) # 2023-11-09 18:00:59.248522
-# # преобразование из мирового в местное
-# print(pytz.utc.localize(date.now())) # 2023-11-09 15:00:59.248522+00:00
+time_now = datetime.datetime.now(pytz.utc).strftime("%y %m %d %H:%M") # мировое время
+print(time_now)  # 2023-11-09 15:00:59.248522+00:00
+print(date.now()) # 2023-11-09 18:00:59.248522
+
+#                            преобразование из мирового в местное
+
+# Предположим, что `time_now` - это строка в формате "yy mm dd HH:MM"
+time_now = "22 11 10 15:30"
+
+# Распарсим строку и создадим объект datetime
+parsed_time = date.strptime(time_now, "%y %m %d %H:%M")
+
+# Укажем, что `parsed_time` является временем в UTC
+parsed_time_utc = pytz.utc.localize(parsed_time)
+
+# Затем преобразуем время из UTC в местное время
+local_time = parsed_time_utc.astimezone(pytz.timezone('Europe/Moscow'))
+
+print(local_time)
 
 
 #                   example 9
@@ -28,14 +42,14 @@ import pytz
 # print(list_time)
 
 
-def custom_key(people):
-    return people[1]  # second parameter denotes the age
-
-
-persons = [['Alice', 26, 'F'], ['Trudy', 25, 'M'], ['Bob', 25, 'M'], ['Alexa', 22, 'F']]
-print(f'Before sorting: {persons}')
-persons.sort(key=custom_key)
-print(f'After sorting: {persons}')
+# def custom_key(people):
+#     return people[1]  # second parameter denotes the age
+#
+#
+# persons = [['Alice', 26, 'F'], ['Trudy', 25, 'M'], ['Bob', 25, 'M'], ['Alexa', 22, 'F']]
+# print(f'Before sorting: {persons}')
+# persons.sort(key=custom_key)
+# print(f'After sorting: {persons}')
 
 # if d2 > d1:
 #     print("ok")
