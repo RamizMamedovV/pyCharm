@@ -15,6 +15,8 @@ choice_text = "Введите пункт меню: "
 search_node_id = "Введите искомый note_id: "
 empty_message = "А здесь ещё пусто)))"
 error_message = "Не верный ввод!"
+well_done_message = "Сделано!"
+something_wrong_message = "Что-то пошло не так!!!"
 
 
 def start():
@@ -70,9 +72,15 @@ def start():
                                               notebook.get_note_id(),
                                               error_message)
                     notebook.delete_note(choice)
+                    view.print_message(well_done_message)
+                else:
+                    view.print_message(something_wrong_message)
 
             case 7:  # Записать в note_data.json
-                notebook.save_note_to_json()
+                if notebook.save_note_to_json():
+                    view.print_message(well_done_message)
+                else:
+                    view.print_message(empty_message)
 
             case 8:  # Выход
                 return

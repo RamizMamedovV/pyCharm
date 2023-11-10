@@ -10,6 +10,15 @@ class Notebook:
     def __init__(self, data_file: str):
         self.data_file = data_file
         self.notebook = []
+        self.open()
+        # if os.path.exists(self.data_file) and os.path.getsize(self.data_file) > 0:
+        #     try:
+        #         with open(self.data_file, 'r', encoding='UTF-8') as file:
+        #             self.notebook = json.load(file)
+        #     except json.decoder.JSONDecodeError as e:
+        #         print(f"Error decoding JSON in {self.data_file}: {e}")
+
+    def open(self):
         if os.path.exists(self.data_file) and os.path.getsize(self.data_file) > 0:
             try:
                 with open(self.data_file, 'r', encoding='UTF-8') as file:
