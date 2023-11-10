@@ -18,30 +18,36 @@ class Note:
             'date': self.rec_time
         }
 
-    def search_format(self):
-        return {
-            'note_id': {self.note_id},
-            'title': {self.title}
-        }
-
-    def key_date(self):
-        return self.rec_time
-
-    def get_note_date(self):
-        return self.rec_time
-
-    def set_note_date(self, new_date):
-        self.rec_time = new_date
-
-    def get_note_id(self):
-        return self.note_id
-
-    def set_note_id(self, note_id):
-        self.note_id = note_id
-
-    def set_note_title(self, title: str):
-        self.title = title
-
-    def set_note_content(self, content: str):
-        self.content = content
-
+    # def search_format(self):
+    #     return {
+    #         'note_id': self.note_id,
+    #         'title': self.title
+    #     }
+    #
+    # def key_date(self):
+    #     return self.rec_time
+    #
+    # def get_note_date(self):
+    #     return self.rec_time
+    #
+    # def set_note_date(self, new_date):
+    #     self.rec_time = new_date
+    #
+    # def get_note_id(self):
+    #     return self.note_id
+    #
+    # def set_note_id(self, note_id):
+    #     self.note_id = note_id
+    #
+    # def set_note_title(self, title: str):
+    #     self.title = title
+    #
+    # def get_note_title(self):
+    #     return self.title
+    #
+    # def set_note_content(self, content: str):
+    #     self.content = content
+    #
+    # def get_note_content(self):
+    #     return self.content
+    #
