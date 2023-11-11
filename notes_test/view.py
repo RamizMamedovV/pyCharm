@@ -14,6 +14,10 @@ def user_choice(choice_text,
             print_message(error_message)
 
 
+def user_text_choice(choice_text) -> str:
+    return input(choice_text)
+
+
 def create_note():
     title = input('Enter title: ')
     content = input('Enter content: ')
@@ -37,6 +41,9 @@ def print_list(notebook: list[dict], error_message: str):
         print_message(error_message)
         return False
 
+
+# def print_list_list(notes: list):
+#     print(notes)
 
 def print_search_format(notebook: list[dict], error_message: str):
     if notebook:

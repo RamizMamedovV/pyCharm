@@ -71,3 +71,10 @@ class Notebook:
         with open(self.data_file, 'w', encoding='UTF-8') as file:
             json.dump(self.notebook, file, indent=3)
 
+    def search_sub_note(self, sub_str: str) -> list:
+        notes = []
+        for note in self.notebook:
+            for fields in note.values():
+                if sub_str.lower() in str(fields).lower():
+                    notes.append(note)
+        return notes

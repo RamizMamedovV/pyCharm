@@ -10,13 +10,15 @@ main_menu = """Меню:
          5. Найти 
          6. Удалить
          7. Записать в note_data.json
-         8. Выход"""
+         8. Найти по кусочку текста
+         9. Выход"""
 choice_text = "Введите пункт меню: "
 search_node_id = "Введите искомый note_id: "
 empty_message = "А здесь ещё пусто)))"
 error_message = "Не верный ввод!"
 well_done_message = "Сделано!"
 something_wrong_message = "Что-то пошло не так!!!"
+sub_text = "Введите искомый кусок текста: "
 same_edit_message = ("               !!!ВНИМАНИЕ!!!\n"
                      "Если не нужно менять, просто нажмите ENTER\n"
                      "              Но дата изменится")
@@ -27,7 +29,7 @@ def start():
     while True:
         choice = view.user_choice(choice_text,
                                   1,
-                                  8,
+                                  9,
                                   error_message,
                                   main_menu)
         match choice:
@@ -86,6 +88,11 @@ def start():
                 else:
                     view.print_message(empty_message)
 
-            case 8:  # Выход
+            case 8:  # Найти по кусочку текста
+                user_choice = view.user_text_choice(sub_text)
+                sub_list = notebook.search_sub_note(user_choice)
+                view.print_list(sub_list, empty_message)
+
+            case 9:  # Выход
                 return
 
